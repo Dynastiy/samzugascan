@@ -8,4 +8,10 @@
     .main--content {
         grid-template-columns: auto;
     }
+    .block_txns {
+        padding: 10px;
+    }
+    .block__table {
+        width: 100%;
+    }
 }

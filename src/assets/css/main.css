@@ -229,3 +229,33 @@ h6.block--num {
 .footer ul li {
     color: var(--gray-50);
 }
+
+/* Search Results */
+.block_txns {
+    padding: 70px 40px;
+    border: 1px solid var(--accent-color-light);
+    border-radius: 10px;
+}
+.block_txns h5 {
+    color: var(--gray-50);
+}
+.block__table {
+    width: 50%;
+    margin-top: 40px;
+}
+.block__table h6 {
+    color: var(--gray-200);
+    font-size: 14px;
+}
+.block__table p {
+    color: var(--gray-100);
+    font-size: 13px;
+    /* margin-left: 60px; */
+}
+.block__table ion-icon {
+    color: var(--gray-50);
+    cursor: pointer;
+}
+.block__table span {
+    color: var(--accent-color);
+}
