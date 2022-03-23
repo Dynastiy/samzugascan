@@ -1,0 +1,487 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 1836383 */
+  src: url('iconfontd26a.woff2') format('woff2'),
+       url('iconfontd26a.woff') format('woff'),
+       url('iconfontd26a.ttf') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-question-mark:before {
+  content: "\e6ae";
+}
+
+.icon-video-play:before {
+  content: "\eb16";
+}
+
+.icon-add:before {
+  content: "\e627";
+}
+
+.icon-close:before {
+  content: "\e6c6";
+}
+
+.icon-success:before {
+  content: "\e6d4";
+}
+
+.icon-transfer:before {
+  content: "\e69b";
+}
+
+.icon-ins:before {
+  content: "\e614";
+}
+
+.icon-youtube:before {
+  content: "\ea07";
+}
+
+.icon-calculator:before {
+  content: "\e66c";
+}
+
+.icon-medium:before {
+  content: "\e6c9";
+}
+
+.icon-discord:before {
+  content: "\eb7a";
+}
+
+.icon-fee-rate:before {
+  content: "\e6ad";
+}
+
+.icon-remind-no:before {
+  content: "\e69a";
+}
+
+.icon-wallet:before {
+  content: "\f4ed";
+}
+
+.icon-remind:before {
+  content: "\e6a8";
+}
+
+.icon-exclamation-mark:before {
+  content: "\e710";
+}
+
+.icon-fiat-currency:before {
+  content: "\e934";
+}
+
+.icon-lang:before {
+  content: "\e610";
+}
+
+.icon-question:before {
+  content: "\e608";
+}
+
+.icon-personal:before {
+  content: "\e613";
+}
+
+.icon-mining:before {
+  content: "\e639";
+}
+
+.icon-correct:before {
+  content: "\e638";
+}
+
+.icon-qq-new:before {
+  content: "\e60f";
+}
+
+.icon-search:before {
+  content: "\e644";
+}
+
+.icon-telegram1:before {
+  content: "\e607";
+}
+
+.icon-twitter1:before {
+  content: "\e609";
+}
+
+.icon-weibo1:before {
+  content: "\e60b";
+}
+
+.icon-facebook1:before {
+  content: "\e60e";
+}
+
+.icon-copy:before {
+  content: "\e63d";
+}
+
+.icon-stick:before {
+  content: "\e699";
+}
+
+.icon-fee-withdraw:before {
+  content: "\e637";
+}
+
+.icon-fee-perpetual:before {
+  content: "\e636";
+}
+
+.icon-fee-spot:before {
+  content: "\e635";
+}
+
+.icon-people:before {
+  content: "\e612";
+}
+
+.icon-lock:before {
+  content: "\e625";
+}
+
+.icon-notice:before {
+  content: "\e634";
+}
+
+.icon-to-top:before {
+  content: "\e775";
+}
+
+.icon-yield:before {
+  content: "\e698";
+}
+
+.icon-rss:before {
+  content: "\e697";
+}
+
+.icon-time:before {
+  content: "\e75e";
+}
+
+.icon-arrow-down:before {
+  content: "\e696";
+}
+
+.icon-night:before {
+  content: "\e632";
+}
+
+.icon-day:before {
+  content: "\e633";
+}
+
+.icon-android:before {
+  content: "\e601";
+}
+
+.icon-apple:before {
+  content: "\e604";
+}
+
+.icon-google-play:before {
+  content: "\e606";
+}
+
+.icon-message:before {
+  content: "\e630";
+}
+
+.icon-my:before {
+  content: "\e631";
+}
+
+.icon-download:before {
+  content: "\e66b";
+}
+
+.icon-computer:before {
+  content: "\e602";
+}
+
+.icon-select:before {
+  content: "\e6d8";
+}
+
+.icon-cal:before {
+  content: "\e60a";
+}
+
+.icon-wenhao:before {
+  content: "\e62f";
+}
+
+.icon-finance:before {
+  content: "\e688";
+}
+
+.icon-contract:before {
+  content: "\e691";
+}
+
+.icon-margin:before {
+  content: "\e692";
+}
+
+.icon-asset:before {
+  content: "\e693";
+}
+
+.icon-spot:before {
+  content: "\e694";
+}
+
+.icon-level1:before {
+  content: "\e68b";
+}
+
+.icon-preference:before {
+  content: "\e68c";
+}
+
+.icon-refer:before {
+  content: "\e68d";
+}
+
+.icon-messages:before {
+  content: "\e68e";
+}
+
+.icon-api-manage:before {
+  content: "\e68f";
+}
+
+.icon-sub-account2:before {
+  content: "\e690";
+}
+
+.icon-fire:before {
+  content: "\e62e";
+}
+
+.icon-fullscreen:before {
+  content: "\e689";
+}
+
+.icon-record:before {
+  content: "\e662";
+}
+
+.icon-nav-left:before {
+  content: "\e686";
+}
+
+.icon-nav-right:before {
+  content: "\e687";
+}
+
+.icon-question-circle:before {
+  content: "\e7c6";
+}
+
+.icon-community:before {
+  content: "\e629";
+}
+
+.icon-security:before {
+  content: "\e62a";
+}
+
+.icon-profession:before {
+  content: "\e62b";
+}
+
+.icon-contact:before {
+  content: "\e62c";
+}
+
+.icon-customer:before {
+  content: "\e62d";
+}
+
+.icon-about:before {
+  content: "\e628";
+}
+
+.icon-show:before {
+  content: "\e6a2";
+}
+
+.icon-hide:before {
+  content: "\e6a3";
+}
+
+.icon-fund:before {
+  content: "\e7de";
+}
+
+.icon-swap:before {
+  content: "\e7f2";
+}
+
+.icon-ellipsis:before {
+  content: "\e7fc";
+}
+
+.icon-hint:before {
+  content: "\e611";
+}
+
+.icon-ziyuan:before {
+  content: "\e60d";
+}
+
+.icon-yes:before {
+  content: "\e66f";
+}
+
+.icon-star:before {
+  content: "\e67c";
+}
+
+.icon-star-active:before {
+  content: "\ebbf";
+}
+
+.icon-export:before {
+  content: "\e6c8";
+}
+
+.icon-rank:before {
+  content: "\e66e";
+}
+
+.icon-date:before {
+  content: "\e616";
+}
+
+.icon-gift:before {
+  content: "\e685";
+}
+
+.icon-page-start:before {
+  content: "\e6a9";
+}
+
+.icon-page-prev:before {
+  content: "\e6aa";
+}
+
+.icon-page-next:before {
+  content: "\e6ab";
+}
+
+.icon-page-end:before {
+  content: "\e6ac";
+}
+
+.icon-chart:before {
+  content: "\e60c";
+}
+
+.icon-drop-down:before {
+  content: "\e63b";
+}
+
+.icon-delete:before {
+  content: "\e600";
+}
+
+.icon-desc:before {
+  content: "\e683";
+}
+
+.icon-asc:before {
+  content: "\e684";
+}
+
+.icon-down:before {
+  content: "\e682";
+}
+
+.icon-next:before {
+  content: "\ebc0";
+}
+
+.icon-huazhuan:before {
+  content: "\e676";
+}
+
+.icon-seefull:before {
+  content: "\e67e";
+}
+
+.icon-see:before {
+  content: "\e680";
+}
+
+.icon-level:before {
+  content: "\e678";
+}
+
+.icon-msg:before {
+  content: "\e67a";
+}
+
+.icon-api:before {
+  content: "\e67d";
+}
+
+.icon-qr:before {
+  content: "\e66d";
+}
+
+.icon-more:before {
+  content: "\e61b";
+}
+
+.icon-twitter:before {
+  content: "\e61c";
+}
+
+.icon-user:before {
+  content: "\e61d";
+}
+
+.icon-facebook:before {
+  content: "\e61f";
+}
+
+.icon-reddit:before {
+  content: "\e620";
+}
+
+.icon-weibo:before {
+  content: "\e621";
+}
+
+.icon-telegram:before {
+  content: "\e622";
+}
+
+.icon-wechat:before {
+  content: "\e623";
+}
+
+.icon-qq:before {
+  content: "\e624";
+}
+
+.icon-email:before {
+  content: "\e61a";
+}
+

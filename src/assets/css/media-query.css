@@ -1,0 +1,11 @@
+@media (max-width: 990px) {
+    .hero--section h1 {
+        font-size: 22px;
+    }
+    .main--content .divider {
+        display: none;
+    }
+    .main--content {
+        grid-template-columns: auto;
+    }
+}
