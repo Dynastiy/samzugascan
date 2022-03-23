@@ -1,11 +1,11 @@
 import Vue from 'vue'
-
+import "toastify-js/src/toastify.css"
 import Toastify from 'toastify-js'
 
 Vue.use(Toastify)
 
 import axios from "axios";
-const BASE_URL = 'http://jsonplaceholder.typicode.com/';
+const BASE_URL = 'https://explorer.zugascan.com/api/';
 const instance = axios.create({
     baseURL: BASE_URL,
     headers: {

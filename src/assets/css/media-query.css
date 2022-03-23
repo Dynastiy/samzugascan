@@ -1,11 +1,23 @@
 @media (max-width: 990px) {
     .hero--section h1 {
-        font-size: 22px;
+        font-size: 40px;
     }
     .main--content .divider {
         display: none;
     }
     .main--content {
+        grid-template-columns: auto;
+    }
+    .footer {
+        /* background: url('@/assets/img/footer--bg.jpg'); */
+        height: 100%;
+        width: 100%;
+        background-size: auto 100%;
+        background-position: bottom;
+        margin-top: 3.3rem;
+    }
+    .card--area {
+        display: grid;
         grid-template-columns: auto;
     }
 }
