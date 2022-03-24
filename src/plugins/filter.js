@@ -39,7 +39,7 @@ const percentFilter = (value) => {
 }
 
 const sliceHash = (value) => {
-    return !value ? '0' : `${(value).slice(0,40)}...`
+    return !value ? '0' : `${(value).slice(0,10)}...`
 }
 const sliceHash2 = (value) => {
     return !value ? '0' : `${(value).slice(0,40)}...`

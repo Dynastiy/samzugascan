@@ -2,7 +2,7 @@
   <div>
     <div class="txns__wrap">
       <h5>All Transactions</h5>
-      <div class="txns__content mt-5">
+      <div class="txns__content mt-3">
         <div class="table-responsive">
           <table class="table table-centered table-nowrap mb-0">
             <thead>
@@ -16,37 +16,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>187328737asHGS.....</td>
-                <td>2108</td>
-                <td>@24 hours ago</td>
-                <td>0xD2D443.....</td>
-                <td>0xD2D43...</td>
-                <td>@1e-7szc <span>($7.90)</span></td>
-              </tr>
-              <tr>
-                <td>187328737asHGS.....</td>
-                <td>2108</td>
-                <td>@24 hours ago</td>
-                <td>0xD2D443.....</td>
-                <td>0xD2D43...</td>
-                <td>@1e-7szc <span>($7.90)</span></td>
-              </tr>
-              <tr>
-                <td>187328737asHGS.....</td>
-                <td>2108</td>
-                <td>@24 hours ago</td>
-                <td>0xD2D443.....</td>
-                <td>0xD2D43...</td>
-                <td>@1e-7szc <span>($7.90)</span></td>
-              </tr>
-              <tr>
-                <td>187328737asHGS.....</td>
-                <td>2108</td>
-                <td>@24 hours ago</td>
-                <td>0xD2D443.....</td>
-                <td>0xD2D43...</td>
-                <td>@1e-7szc <span>($7.90)</span></td>
+              <tr v-for="txn in txns" :key="txn.id">
+                <td> {{ sliceHash(txn.attributes.txn_hash) }} </td>
+                <td> {{ txn.attributes.block.data.id-1 }} </td>
+                <td> {{  timeRange(txn.attributes.createdAt)}} </td>
+                <td>{{ sliceHash(txn.attributes.txn_address_from) }}</td>
+                <td>{{ sliceHash(txn.attributes.txn_address_to) }}</td>
+                <td> {{ txn.attributes.amount }}<span>{{ txn.attributes.currency }} </span></td>
               </tr>
             </tbody>
           </table>
@@ -56,6 +32,29 @@
   </div>
 </template>
 
+
 <script>
-export default {};
+import { dollarFilter, timeRange, sliceHash } from "@/plugins/filter.js";
+export default {
+  data(){
+    return{
+      dollarFilter, timeRange, sliceHash,
+      txns: '',
+    }
+  },
+  methods:{
+    async getTxns(){
+      try {
+        let res = await this.$axios('/txns?sort=id:DESC&&populate=block,pool_owner_user');
+        console.log(res.data.data);
+        this.txns = res.data.data
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  },
+  async created(){
+    this.getTxns()
+  }
+};
 </script>

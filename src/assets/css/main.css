@@ -298,11 +298,14 @@ h6.block--num {
 /* Txns Page */
 
 .txns__wrap h5 {
+    margin-top: 3rem;
+    margin-bottom: 0.2rem;
+    font-size: 1.6rem;
     color: var(--gray-50);
 }
 
 .txns__wrap .txns__content {
-    padding: 70px 40px;
+    padding: 40px 20px;
     border: 1px solid var(--accent-color-light);
     border-radius: 10px;
 }
@@ -314,13 +317,13 @@ h6.block--num {
 .txns__wrap .txns__content .table thead th {
     border-bottom: 1px solid var(--accent-color-light);
     color: var(--gray-200);
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .txns__wrap .txns__content .table td,
 .table th {
     color: var(--gray-100);
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .txns__wrap .txns__content .table span {
