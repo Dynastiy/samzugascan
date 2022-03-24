@@ -8,7 +8,8 @@
             <h6>Block Hash</h6>
           </div>
           <div class="d-flex ml-auto align-items-center" style="gap: 10px">
-            <p>{{ block.block_hash }}</p>
+            <p class="no--hash">{{ block.block_hash }}</p>
+            <p class="no--hash2">{{ sliceHash2(block.block_hash) }}</p>
             <ion-icon ios="ios-copy" md="md-copy"></ion-icon>
           </div>
         </div>
@@ -17,7 +18,8 @@
             <h6>Previous Hash</h6>
           </div>
           <div class="d-flex ml-auto align-items-center" style="gap: 10px">
-            <p>{{ block.previous_hash }}</p>
+            <p class="no--hash">{{ block.previous_hash }}</p>
+             <p class="no--hash2">{{ sliceHash2(block.previous_hash) }}</p>
             <ion-icon ios="ios-copy" md="md-copy"></ion-icon>
           </div>
         </div>
@@ -76,7 +78,8 @@
             <h6>Transaction Hash</h6>
           </div>
           <div class="d-flex ml-auto">
-            <p>{{ txn.txn_hash }}</p>
+            <p class="no--hash">{{ txn.txn_hash }}</p>
+             <p class="no--hash2">{{ sliceHash2(txn.txn_hash) }}</p>
             <ion-icon ios="ios-copy" md="md-copy"></ion-icon>
           </div>
         </div>
@@ -139,13 +142,13 @@
 </template>
 
 <script>
-import { dollarFilter, timeRange, sliceHash } from "@/plugins/filter.js";
+import { dollarFilter, timeRange, sliceHash2 } from "@/plugins/filter.js";
 export default {
   data() {
     return {
       dollarFilter,
       timeRange,
-      sliceHash,
+      sliceHash2,
       id: this.$route.params.id,
       block: "",
       block_id: "",

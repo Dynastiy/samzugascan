@@ -39,11 +39,14 @@ const percentFilter = (value) => {
 }
 
 const sliceHash = (value) => {
-    return !value ? '0' : `${(value).slice(0,10)}...`
+    return !value ? '0' : `${(value).slice(0,40)}...`
+}
+const sliceHash2 = (value) => {
+    return !value ? '0' : `${(value).slice(0,40)}...`
 }
 
 const percentageFilter = (value) => {
     return !value ? '0%' : `${Number(value).toFixed(2) * 100}%`
 }
 
-export { dollarFilter, percentFilter, percentageFilter, timeStamp, timeRange, dollarFilter2, sliceHash }
+export { dollarFilter, percentFilter, percentageFilter, timeStamp, timeRange, dollarFilter2, sliceHash, sliceHash2 }

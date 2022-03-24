@@ -26,4 +26,13 @@
     .block__table {
         width: 100%;
     }
+    .block__table p {
+        font-size: 0.9rem;
+    }
+    .no--hash {
+        display: none;
+    }
+    .no--hash2 {
+        display: block;
+    }
 }
