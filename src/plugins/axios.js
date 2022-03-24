@@ -6,14 +6,16 @@ Vue.use(Toastify)
 
 import axios from "axios";
 const BASE_URL = 'https://explorer.zugascan.com/api/';
+// const BASE_URL = 'https://network.zugascan.com/';
+
 const instance = axios.create({
     baseURL: BASE_URL,
     headers: {
         "Content-type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "access - control - allow - origin",
-        "Access-Control-Allow-Methods": 'GET, HEAD, PUT, PATCH, POST, DELETE'
-            // 'Authorization': `Bearer ${localStorage.token}`
+        // "Access-Control-Allow-Origin": "*",
+        // "Access-Control-Allow-Headers": "*",
+        // "Access-Control-Allow-Methods": 'GET, HEAD, PUT, PATCH, POST, DELETE'
+        // 'Authorization': `Bearer ${localStorage.token}`
     }
 });
 
@@ -35,18 +37,15 @@ instance.interceptors.response.use(function(response) {
     return response;
 }, function(error) {
     console.log(error);
-    console.log(error.response.status);
+    console.log(error.response.data.error.message);
+    Toastify({
+        text: error.response.data.error.message,
+        className: "info",
+        style: {
+            background: "red",
+        }
+    }).showToast();
 
-    if (error.response.status === 404) {
-        Toastify({
-            text: "Page not Found",
-            className: "info",
-            style: {
-                background: "red",
-            }
-        }).showToast();
-
-    }
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
     return Promise.reject(error);

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="block_txns">
+    <div class="block_txns" v-if="currentRouteName == 'block' ">
       <h5>Block 2108</h5>
       <div class="block__table">
         <div class="d-md-flex">
@@ -49,7 +49,7 @@
 
     <!-- Transactions Section -->
 
-    <div class="block_txns mt-5">
+    <div class="block_txns mt-5" v-else>
       <h5>Transaction Details</h5>
       <div class="block__table">
         <div class="d-md-flex">
@@ -123,5 +123,48 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      id: this.$route.params.id
+    }
+  },
+  methods: {
+    async getBlockById(){
+      try {
+        let res = await this.$axios.get(`/blocks/${this.id}?populate=txns,miner`);
+        console.log(res.data.data.attributes);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async getTxnById(){
+      try {
+       let res = await this.$axios.get(`/txns/${this.id}?populate=block,pool_owner_user`);
+       console.log(res.data.data.attributes);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  },
+  async created(){
+    if(this.$route.name === 'txn'){
+        this.getTxnById()
+    }
+    else{
+      this.getBlockById()
+    }
+    
+    
+    console.log(this.$route.name);
+  },
+  computed: {
+    currentRouteName(){
+      return this.$route.name
+    }
+  }
+};
 </script>
+
+//  https://explorer.zugascan.com/api/txns/1?populate=block,pool_owner_user
+// https://explorer.zugascan.com/api/blocks/3?populate=txns,miner
