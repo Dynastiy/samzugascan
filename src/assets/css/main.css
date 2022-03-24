@@ -285,7 +285,6 @@ h6.block--num {
     color: var(--accent-color);
 }
 
-<<<<<<< HEAD
 .block_txns .success--badge {
     background: var(--green-100);
     padding: 0.2rem 0.6rem;
@@ -293,29 +292,37 @@ h6.block--num {
     border-radius: 3px;
     color: #34c385 !important;
     font-weight: bold;
-=======
+}
+
+
 /* Txns Page */
+
 .txns__wrap h5 {
     color: var(--gray-50);
 }
+
 .txns__wrap .txns__content {
     padding: 70px 40px;
     border: 1px solid var(--accent-color-light);
     border-radius: 10px;
 }
+
 .txns__wrap .txns__content h6 {
     color: var(--gray-200);
 }
+
 .txns__wrap .txns__content .table thead th {
     border-bottom: 1px solid var(--accent-color-light);
     color: var(--gray-200);
     font-size: 13px;
 }
-.txns__wrap .txns__content .table td, .table th {
+
+.txns__wrap .txns__content .table td,
+.table th {
     color: var(--gray-100);
     font-size: 13px;
 }
+
 .txns__wrap .txns__content .table span {
     color: var(--accent-color);
->>>>>>> 45611546cfa9ab041cf696c97e69bd7da716c224
 }
