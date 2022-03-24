@@ -16,7 +16,8 @@
             </thead>
             <tbody>
               <tr v-for="block in blocks" :key="block.id">
-                <td v-if="block.attributes"> {{ sliceHash(block.attributes.block_hash) }} </td>
+                <td v-if="block.attributes"> <router-link :to="'/block/' + block.id"
+                        > {{ sliceHash(block.attributes.block_hash) }}</router-link>  </td>
                 <td class="text-right"> {{ block.id-1 }} </td>
                 <td v-if="block.attributes"> {{  timeRange(block.attributes.createdAt)}} </td>
                 <td v-if="block.attributes" class="text-capitalize"> {{ block.attributes.miner.data.attributes.username }} </td>

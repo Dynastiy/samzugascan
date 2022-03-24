@@ -292,6 +292,7 @@ h6.block--num {
     border-radius: 3px;
     color: #34c385 !important;
     font-weight: bold;
+    width: max-content;
 }
 
 
@@ -328,4 +329,8 @@ h6.block--num {
 
 .txns__wrap .txns__content .table span {
     color: var(--accent-color);
+}
+
+a {
+    color: var(--gray-50);
 }

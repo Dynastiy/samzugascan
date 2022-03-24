@@ -17,12 +17,13 @@
             </thead>
             <tbody>
               <tr v-for="txn in txns" :key="txn.id">
-                <td> {{ sliceHash(txn.attributes.txn_hash) }} </td>
-                <td> {{ txn.attributes.block.data.id-1 }} </td>
-                <td> {{  timeRange(txn.attributes.createdAt)}} </td>
-                <td>{{ sliceHash(txn.attributes.txn_address_from) }}</td>
-                <td>{{ sliceHash(txn.attributes.txn_address_to) }}</td>
-                <td> {{ txn.attributes.amount }}<span>{{ txn.attributes.currency }} </span></td>
+                <td v-if="txn.attributes" ><router-link :to="'/tx/' + txn.id"
+                        > {{ sliceHash(txn.attributes.txn_hash) }} </router-link> </td>
+                <td v-if="txn.attributes"> {{ txn.attributes.block.data.id-1 }} </td>
+                <td v-if="txn.attributes"> {{  timeRange(txn.attributes.createdAt)}} </td>
+                <td v-if="txn.attributes">{{ sliceHash(txn.attributes.txn_address_from) }}</td>
+                <td v-if="txn.attributes">{{ sliceHash(txn.attributes.txn_address_to) }}</td>
+                <td v-if="txn.attributes"> {{ txn.attributes.amount }}<span>{{ txn.attributes.currency }} </span></td>
               </tr>
             </tbody>
           </table>
