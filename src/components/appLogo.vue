@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="logo">
-            <img src="@/assets/img/logo.svg" alt="" srcset="" width="150">
+           <router-link to="/"> <img src="@/assets/img/logo.svg" alt="" srcset="" width="150"></router-link>
         </div>
     </div>
 </template>

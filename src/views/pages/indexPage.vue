@@ -12,10 +12,10 @@
 
           <input
             type="search"
-            placeholder="Search by Transaction Hash / block address"
+            v-model="search_item"
+            placeholder="Search by Transaction Hash / Block Hash"
           />
-
-          <ion-icon name="arrow-forward" class="forward"></ion-icon>
+          <ion-icon name="arrow-forward" class="forward" @click="goToSearch"></ion-icon>
         </div>
       </div>
     </div>
@@ -221,6 +221,7 @@ export default {
       total_blocks: "",
       total_txns: "",
       live_prices: "",
+      search_item: '',
     };
   },
 
@@ -253,6 +254,10 @@ export default {
         console.log(error.response);
       }
       this.loading = false;
+    },
+    goToSearch(){
+       this.$router.push({path:'/search-results', query:{ q: this.search_item}});
+            console.log(this.search_item)
     },
     getLivePrices() {
       this.$axios

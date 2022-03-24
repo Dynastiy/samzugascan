@@ -240,32 +240,56 @@ h6.block--num {
     color: var(--gray-50);
 }
 
+
 /* Search Results */
+
 .block_txns {
-    padding: 70px 40px;
+    padding: 30px 40px;
+    margin-top: 3rem;
     border: 1px solid var(--accent-color-light);
     border-radius: 10px;
 }
-.block_txns h5 {
+
+.block_txns .d-md-flex {
+    margin-bottom: 1.6rem;
+}
+
+.block_txns h3 {
     color: var(--gray-50);
 }
+
 .block__table {
-    width: 50%;
+    width: 75%;
     margin-top: 40px;
 }
+
 .block__table h6 {
     color: var(--gray-200);
-    font-size: 14px;
+    font-size: 16px;
+    margin: 0;
 }
+
 .block__table p {
     color: var(--gray-100);
-    font-size: 13px;
+    font-size: 16px;
+    margin: 0;
     /* margin-left: 60px; */
 }
+
 .block__table ion-icon {
     color: var(--gray-50);
     cursor: pointer;
 }
+
 .block__table span {
     color: var(--accent-color);
+}
+
+.block_txns .success--badge {
+    background: var(--green-100);
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    color: #34c385 !important;
+    font-weight: bold;
 }
