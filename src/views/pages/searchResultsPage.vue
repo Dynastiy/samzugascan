@@ -10,7 +10,7 @@
           <div class="d-flex ml-auto align-items-center" style="gap: 10px">
             <p class="no--hash">{{ block.block_hash }}</p>
             <p class="no--hash2">{{ sliceHash2(block.block_hash) }}</p>
-            <ion-icon ios="ios-copy" md="md-copy"></ion-icon>
+            <!-- <ion-icon ios="ios-copy" md="md-copy"></ion-icon> -->
           </div>
         </div>
         <div class="d-md-flex">
@@ -20,7 +20,7 @@
           <div class="d-flex ml-auto align-items-center" style="gap: 10px">
             <p class="no--hash">{{ block.previous_hash }}</p>
              <p class="no--hash2">{{ sliceHash2(block.previous_hash) }}</p>
-            <ion-icon ios="ios-copy" md="md-copy"></ion-icon>
+            <!-- <ion-icon ios="ios-copy" md="md-copy"></ion-icon> -->
           </div>
         </div>
         <div class="d-md-flex">
@@ -80,7 +80,7 @@
           <div class="d-flex ml-auto">
             <p class="no--hash">{{ txn.txn_hash }}</p>
              <p class="no--hash2">{{ sliceHash2(txn.txn_hash) }}</p>
-            <ion-icon ios="ios-copy" md="md-copy"></ion-icon>
+            <!-- <ion-icon ios="ios-copy" md="md-copy"></ion-icon> -->
           </div>
         </div>
         <div class="d-md-flex">
@@ -184,7 +184,7 @@ export default {
     async searchQuery() {
       this.loading = true;
       const usersInput = this.$route.query.search;
-      var url1 = `https://explorer.zugascan.com/api/txns?sort=id:DESC&filters[txn_hash][$eq]=${usersInput}`
+      var url1 = `https://explorer.zugascan.com/api/txns?sort=id:DESC&filters[txn_hash][$eq]=${usersInput}&populate=block,pool_owner_user`
       var url2 = `https://explorer.zugascan.com/api/blocks?sort=id:DESC&filters[block_hash][$eq]=${usersInput}&populate=txns,miner`
       var res = Promise.all([
         fetch(url1)
@@ -222,12 +222,13 @@ export default {
       alert("No results")
     },
     txnDetails(data) {
-      this.txn = data;
+      this.txn = data.attributes;
       this.name = "txn"
       console.log(this.txn);
     },
     blockDetails(data) {
-      this.block = data;
+      this.block = data.attributes;
+      this.block_id = data.id
       this.name = "block"
       console.log(this.block);
     },
