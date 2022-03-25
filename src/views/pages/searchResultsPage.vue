@@ -1,7 +1,14 @@
 <template>
   <div>
     <div class="block_txns" v-if="currentRouteName == 'block' ||  name === 'block' " >
-      <h3>Block #{{ block_id - 1 }}</h3>
+      <span v-if="loading">
+          <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div></span>
+      <div v-else>
+        <h3>Block #{{ block_id - 1 }}</h3>
       <div class="block__table">
         <div class="d-md-flex">
           <div>
@@ -66,13 +73,20 @@
           </div>
         </div>
       </div>
+      </div>
     </div>
 
     <!-- Transactions Section -->
 
     <div class="block_txns mt-5" v-else>
       <h3>Transaction Details</h3>
-      <div class="block__table">
+      <span v-if="loading">
+          <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div></span>
+      <div class="block__table" v-else>
         <div class="d-md-flex">
           <div>
             <h6>Transaction Hash</h6>
@@ -158,6 +172,7 @@ export default {
   },
   methods: {
     async getBlockById() {
+      this.loading = true
       try {
         let res = await this.$axios.get(
           `/blocks/${this.id}?populate=txns,miner`
@@ -168,8 +183,10 @@ export default {
       } catch (error) {
         console.log(error);
       }
+      this.loading = false
     },
     async getTxnById() {
+      this.loading = true;
       try {
         let res = await this.$axios.get(
           `/txns/${this.id}?populate=block,pool_owner_user`
@@ -180,6 +197,7 @@ export default {
       } catch (error) {
         console.log(error);
       }
+      this.loading = false
     },
     async searchQuery() {
       this.loading = true;
@@ -219,7 +237,8 @@ export default {
       }
     },
     searchResultNotfound() {
-      alert("No results")
+      // alert("No results")
+      this.$router.push('/no-result')
     },
     txnDetails(data) {
       this.txn = data.attributes;

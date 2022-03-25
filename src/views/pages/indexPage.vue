@@ -3,11 +3,12 @@
     <!-- Hero Section -->
     <div class="hero--section d-flex align-items-center">
       <div class="w-100">
-        <div class="bg--image">
+        <!-- <div class="bg--image">
           <img src="@/assets/img/top--image.png" alt="" />
-        </div>
+        </div> -->
         <h1 class="text-white">SamZuga Blockchain Explorer</h1>
-        <div class="search--area d-flex align-items-center" style="gap: 10px">
+       <form action="" @submit.prevent="goToSearch">
+          <div class="search--area d-flex align-items-center" style="gap: 10px">
           <ion-icon name="search" class="search" @click="goToSearch"></ion-icon>
 
           <input
@@ -15,9 +16,10 @@
             placeholder="Search by Transaction Hash / block address"
             v-model="search"
           />
-
-          <ion-icon name="arrow-forward" class="forward" @click="goToSearch"></ion-icon>
+  <button type="submit" class="bg-transparent border-0"><ion-icon name="arrow-forward" class="forward" @click="goToSearch"></ion-icon></button>
+          
         </div>
+       </form>
       </div>
     </div>
 

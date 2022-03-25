@@ -4,7 +4,7 @@
       <img src="@/assets/img/sad.png" alt="sad emoji" />
       <h3>Oooops! No Results Found</h3>
       <p>
-        We couldn’t find your search results. Please check if you typed a <br />
+        We couldn't find your search results. Please check if you typed a <br />
         correct block or transaction hash or try a different one.
       </p>
       <div @click="goBack()" class="back__wrap d-flex justify-content-center">
@@ -19,7 +19,7 @@
 export default {
   methods: {
     goBack() {
-      this.$router.go(-1);
+      this.$router.push('/');
     },
   },
 };

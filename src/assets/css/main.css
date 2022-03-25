@@ -43,11 +43,17 @@
 .hero--section .forward {
     /* background-color: var(--gray-300); */
     font-size: 24px;
-    padding-left: 0.4rem;
+    /* padding-left: 0.4rem; */
     border-radius: 0 5px 5px 0;
     padding: 8px 12px;
+    margin: 0 !important;
     background-color: var(--accent-color);
     border: 1px solid var(--accent-color);
+}
+
+.hero--section button {
+    display: flex;
+    align-items: center;
 }
 
 .hero--section .search--area {
@@ -331,25 +337,32 @@ h6.block--num {
     color: var(--accent-color);
 }
 
+
 /* No results Page */
+
 .no__results__wrap h3 {
     margin-top: 40px;
     color: var(--gray-50);
 }
-.no__results__wrap p {   
+
+.no__results__wrap p {
     color: var(--gray-50);
     font-size: 14px;
 }
+
 .no__results__wrap span {
     color: var(--gray-50);
 }
+
 .no__results__wrap ion-icon {
     color: var(--gray-50);
     font-size: 25px;
 }
+
 .no__results__wrap .back__wrap {
     cursor: pointer;
 }
+
 a {
     color: var(--gray-50);
 }
