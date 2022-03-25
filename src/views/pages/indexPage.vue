@@ -13,9 +13,10 @@
           <input
             type="search"
             placeholder="Search by Transaction Hash / block address"
+            v-model="search"
           />
 
-          <ion-icon name="arrow-forward" class="forward"></ion-icon>
+          <ion-icon name="arrow-forward" class="forward" @click="goToSearch"></ion-icon>
         </div>
       </div>
     </div>
@@ -218,6 +219,7 @@ export default {
       loading: false,
       blocks: [],
       txns: "",
+      search:'',
       total_blocks: "",
       total_txns: "",
       live_prices: "",
@@ -246,7 +248,7 @@ export default {
         let res = await this.$axios.get(
           "txns?sort=id:DESC&pagination[pageSize]=5&populate=block,pool_owner_user"
         );
-        console.log(res.data);
+        // console.log(res.data);
         this.total_txns = res.data.meta.pagination.total;
         this.txns = res.data.data;
       } catch (error) {
@@ -255,15 +257,15 @@ export default {
       this.loading = false;
     },
     goToSearch(){
-       this.$router.push({path:'/search-results', query:{ q: this.search_item}});
-            console.log(this.search_item)
+       this.$router.push({path:'/search-results', query:{ search: this.search}});
+            // console.log(this.search_item)
     },
     getLivePrices() {
       this.$axios
         .get("https://price-api.crypto.com/price/v1/global-metrics")
         .then((response) => {
           this.live_prices = response.data.data;
-          console.log(this.live_prices);
+          // console.log(this.live_prices);
         });
     },
     

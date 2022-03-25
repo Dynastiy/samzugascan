@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="block_txns" v-if="currentRouteName == 'block'">
+    <div class="block_txns" v-if="currentRouteName == 'block' ||  name === 'block' " >
       <h3>Block #{{ block_id - 1 }}</h3>
       <div class="block__table">
         <div class="d-md-flex">
@@ -153,6 +153,7 @@ export default {
       block: "",
       block_id: "",
       txn: "",
+      name: '',
     };
   },
   methods: {
@@ -161,7 +162,7 @@ export default {
         let res = await this.$axios.get(
           `/blocks/${this.id}?populate=txns,miner`
         );
-        console.log(res.data.data.attributes);
+        // console.log(res.data.data.attributes);
         this.block = res.data.data.attributes;
         this.block_id = res.data.data.id;
       } catch (error) {
@@ -173,7 +174,7 @@ export default {
         let res = await this.$axios.get(
           `/txns/${this.id}?populate=block,pool_owner_user`
         );
-        console.log(res.data.data.attributes);
+        // console.log(res.data.data.attributes);
         this.txn = res.data.data.attributes;
         //  this.txn_id = res.data.data.id
       } catch (error) {
@@ -181,28 +182,18 @@ export default {
       }
     },
     async searchQuery() {
-      // var loadinn =  localStorage.getItem("loader");
-      // loadinn = false
       this.loading = true;
-      const usersInput = this.$route.query.q;
-      // var url1 = 'https://network.zugascan.com/txns?txn_hash=' + usersInput;
-      // var url2 = 'https://network.zugascan.com/blocks?id=' + usersInput;
-      // var url3 = 'https://network.zugascan.com/txns?txn_address_from=' + usersInput;
-      // var url4 = 'https://network.zugascan.com/txns?txn_address_to=' + usersInput;
-
+      const usersInput = this.$route.query.search;
+      var url1 = `https://explorer.zugascan.com/api/txns?sort=id:DESC&filters[txn_hash][$eq]=${usersInput}`
+      var url2 = `https://explorer.zugascan.com/api/blocks?sort=id:DESC&filters[block_hash][$eq]=${usersInput}&populate=txns,miner`
       var res = Promise.all([
-        this.$axios.get(
-          `txns?sort=id:DESC&pagination[pageSize]=5&filters[txn_hash][$eq]=${usersInput}`
-        ).then((res) => (res.ok && res.json()) || Promise.reject(res)),
-        this.$axios.get(
-          `blocks?sort=id:DESC&pagination[pageSize]=5&filters[block_hash][$eq]=${usersInput}&populate=txns,miner`
-        ).then((res) => (res.ok && res.json()) || Promise.reject(res)),
-        // fetch(url3).then(res => res.ok && res.json() || Promise.reject(res)),
-        // fetch(url4).then(res => res.ok && res.json() || Promise.reject(res)),
+        fetch(url1)
+        .then(res => res.ok && res.json() || Promise.reject(res)),
+        fetch(url2)
+        .then(res => res.ok && res.json() || Promise.reject(res)),
       ])
         .then((data) => {
           console.log(res);
-          
           this.displaySearchResult(data);
         })
         .catch((err) => {
@@ -213,32 +204,32 @@ export default {
           this.loading = false;
         });
     },
-    displaySearchResult(data) {
-      function isEmpty(data) {
-        return (data == null || data.length === 0);
+    displaySearchResult(data){
+      // console.log(data);
+      if(data[0].data.length !== 0 ){
+        this.txnDetails(data[0].data[0]);
+        // console.log("Hello");
       }
-      if (isEmpty(data[0]) == false) {
-        this.txnDetails(data[0]);
-      } else if (isEmpty(data[1]) == false) {
-        this.blockDetails(data[1]);
-        console.log("data 1 from conditional statement");
-      } else if (isEmpty(data[0], data[1] == true)) {
+      else if(data[1].data.length !== 0) {
+        this.blockDetails(data[1].data[0])
+        // console.log("Hi");
+      }
+      else{
         this.searchResultNotfound();
-      } else {
-        alert("An error occurred");
       }
     },
     searchResultNotfound() {
-      const userVal = localStorage.getItem("userInput");
-      this.vaal = userVal;
-      this.notfound = true;
+      alert("No results")
     },
     txnDetails(data) {
-      this.txns = data;
-      console.log(this.txns);
+      this.txn = data;
+      this.name = "txn"
+      console.log(this.txn);
     },
     blockDetails(data) {
-      this.blocks = data;
+      this.block = data;
+      this.name = "block"
+      console.log(this.block);
     },
   },
   async created() {
@@ -248,7 +239,8 @@ export default {
       } else {
         this.getBlockById();
       }
-    } else {
+    } 
+    else {
       this.searchQuery();
     }
   },
