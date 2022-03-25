@@ -3,6 +3,9 @@
     <div class="txns__wrap">
       <h5>All Transactions</h5>
       <div class="txns__content mt-3">
+        
+        <!-- Pagination -->
+        <pagination :meta="meta" v-on:next="getTxns" class="mt-4"/>
         <div class="table-responsive">
           <table class="table table-centered table-nowrap mb-0">
             <thead>
@@ -28,6 +31,9 @@
             </tbody>
           </table>
         </div>
+        
+        <!-- Pagination -->
+        <pagination :meta="meta" v-on:next="getTxns" class="mt-4"/>
       </div>
     </div>
   </div>
@@ -35,20 +41,26 @@
 
 
 <script>
+import pagination from "@/components/static/paginationComp.vue";
 import { dollarFilter, timeRange, sliceHash } from "@/plugins/filter.js";
 export default {
+  components:{
+    pagination
+  },
   data(){
     return{
       dollarFilter, timeRange, sliceHash,
       txns: '',
+      meta: {}
     }
   },
   methods:{
-    async getTxns(){
+    async getTxns(page = 1){
       try {
-        let res = await this.$axios('/txns?sort=id:DESC&&populate=block,pool_owner_user');
+        let res = await this.$axios(`/txns?sort=id:DESC&pagination[page]=${page}&populate=block,pool_owner_user`);
         console.log(res.data.data);
         this.txns = res.data.data
+        this.meta = res.data.meta.pagination
       } catch (error) {
         console.log(error);
       }

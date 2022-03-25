@@ -334,3 +334,27 @@ h6.block--num {
 a {
     color: var(--gray-50);
 }
+
+.no--hash {
+    display: block;
+}
+
+.no--hash2 {
+    display: none;
+}
+
+
+/* Pagination */
+
+.pagination .page-link {
+    background-color: var(--accent-color-light) !important;
+    border: none;
+    color: var(--gray-50);
+    padding: 0.4rem 1rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+.pagination .page-link:focus {
+    box-shadow: none;
+}
