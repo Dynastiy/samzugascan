@@ -16,9 +16,9 @@
                   Quicklinks
               </h4>
               <ul class="list-unstlyed">
-                  <li>Zugacoin</li>
-                  <li>Merchant Wallet</li>
-                  <li>Samzuga Family</li>
+                  <li> <a target="_blank" href="https://zugacoin.io">Zugacoin</a> </li>
+                  <li> <a target="_blank" href="https://africanapp.store/">Merchant Wallet</a> </li>
+                  <li> <a target="_blank" href="https://samzuga.org">Samzuga Family</a> </li>
               </ul>
           </div>
           <div class="col-sm-6 col-lg-3 ">
@@ -26,17 +26,17 @@
                   Exchange Links
               </h4>
               <ul class="list-unstlyed">
-                  <li>Exchange</li>
-                  <li>P2P</li>
+                  <li> <a target="_blank" href="https://samzuga.exchange/">Exchange</a> </li>
+                  <li> <a target="_blank" href="https://africanapp.store/"> P2P</a></li>
               </ul>
           </div>
           <div class="col-md-2">
               <h5>
                   Social
               </h5>
-              <ul class="list-unstlyed">
-                  <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                  <a href=""><i class="fa fa-telegram" aria-hidden="true"></i></a>
+              <ul class="list-unstlyed d-flex align-items-center" style="gap:10px">
+                  <a target="_blank" href="https://facebook.com/bishopsamzugaofficial"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  <a target="_blank" href="https://t.me/officialzugacoin"><i class="fa fa-telegram" aria-hidden="true"></i></a>
               </ul>
           </div>
         </div>

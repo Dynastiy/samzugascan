@@ -246,6 +246,10 @@ h6.block--num {
     color: var(--gray-50);
 }
 
+.footer a:hover {
+    color: var(--gray-100);
+}
+
 
 /* Search Results */
 
