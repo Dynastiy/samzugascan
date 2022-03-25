@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="block_txns" v-if="currentRouteName == 'block' ||  name === 'block' " >
-      <span v-if="loading">
+      <span v-show="loading">
           <div class="d-flex justify-content-center">
             <div class="spinner-border" role="status">
               <span class="sr-only">Loading...</span>
             </div>
           </div></span>
-      <div v-else>
+      <div v-show="!loading">
         <h3>Block #{{ block_id - 1 }}</h3>
       <div class="block__table">
         <div class="d-md-flex">
@@ -80,13 +80,13 @@
 
     <div class="block_txns mt-5" v-else>
       <h3>Transaction Details</h3>
-      <span v-if="loading">
+      <span v-show="loading">
           <div class="d-flex justify-content-center">
             <div class="spinner-border" role="status">
               <span class="sr-only">Loading...</span>
             </div>
           </div></span>
-      <div class="block__table" v-else>
+      <div class="block__table" v-show="!loading">
         <div class="d-md-flex">
           <div>
             <h6>Transaction Hash</h6>
@@ -168,6 +168,7 @@ export default {
       block_id: "",
       txn: "",
       name: '',
+      loading: false,
     };
   },
   methods: {
@@ -200,7 +201,7 @@ export default {
       this.loading = false
     },
     async searchQuery() {
-      this.loading = true;
+      this.loading = true
       const usersInput = this.$route.query.search;
       var url1 = `https://explorer.zugascan.com/api/txns?sort=id:DESC&filters[txn_hash][$eq]=${usersInput}&populate=block,pool_owner_user`
       var url2 = `https://explorer.zugascan.com/api/blocks?sort=id:DESC&filters[block_hash][$eq]=${usersInput}&populate=txns,miner`
