@@ -331,6 +331,25 @@ h6.block--num {
     color: var(--accent-color);
 }
 
+/* No results Page */
+.no__results__wrap h3 {
+    margin-top: 40px;
+    color: var(--gray-50);
+}
+.no__results__wrap p {   
+    color: var(--gray-50);
+    font-size: 14px;
+}
+.no__results__wrap span {
+    color: var(--gray-50);
+}
+.no__results__wrap ion-icon {
+    color: var(--gray-50);
+    font-size: 25px;
+}
+.no__results__wrap .back__wrap {
+    cursor: pointer;
+}
 a {
     color: var(--gray-50);
 }

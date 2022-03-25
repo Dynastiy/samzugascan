@@ -26,6 +26,21 @@
     .block__table {
         width: 100%;
     }
+    .no__results__wrap img {
+        width: 50%;
+    }
+    .no__results__wrap h3 {
+        font-size: 18px;
+    }
+    .no__results__wrap p {
+        font-size: 10px;
+    }
+    .no__results__wrap span {
+        font-size: 12px;
+    }
+    .no__results__wrap ion-icon {
+        font-size: 18px;
+    }
     .block__table p {
         font-size: 0.9rem;
     }
